@@ -1,0 +1,9 @@
+# ベース：プロジェクト名・共有ネットワーク・名前付きボリューム（サービス定義なし）
+name: laravel-pos
+
+networks:
+  laravel-pos:
+    driver: bridge
+
+volumes:
+  mysql_data:

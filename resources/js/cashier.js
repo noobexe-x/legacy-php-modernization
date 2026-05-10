@@ -178,7 +178,7 @@ window.ajaxSubmit = function (url, data, content = "orderList") {
         data: data,
         success: function (data) {
             if (data == "NOTABLE")
-                showError("Please select any table first!");
+                showError("先にテーブルを選択してください。");
             else
                 $("#" + content).html(data);
         },
@@ -306,7 +306,7 @@ $(document).on("submit", "form#submitForm", function (event) {
                 }
             } else {
                 formModal.hide();
-                $('.modal-body p', successModalId).text("Data has been saved successfully");
+                $('.modal-body p', successModalId).text("保存しました");
                 successModal.show();
                 if (data.redirect_url) {
                     ajaxLoad(data.redirect_url);

@@ -1,6 +1,6 @@
 <!-- Laravel POS With jQuery @ https://laravelcenter.com -->
 <div class="pagetitle">
-    <h1>Dashboard</h1>
+    <h1>ダッシュボード</h1>
 </div>
 @php
 $total_amount = 0;
@@ -27,7 +27,7 @@ $net_amount = $total_amount - $total_discount;
                         <div class="display-6 text-white">
                             $ {{ number_format($total_amount, 2) }}
                         </div>
-                        <div class="card-text fs-6 mt-2">Daily Total Sale</div>
+                        <div class="card-text fs-6 mt-2">本日の売上合計</div>
                     </div>
                     <div style="color: lightblue"><i class="bi bi-cash-stack display-4"></i></div>
                 </div>
@@ -40,7 +40,7 @@ $net_amount = $total_amount - $total_discount;
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="me-2">
                         <div class="display-6 text-white">$ {{ number_format($total_discount, 2) }}</div>
-                        <div class="card-text fs-6 mt-2">Daily Total Disount</div>
+                        <div class="card-text fs-6 mt-2">本日の値引合計</div>
                     </div>
                     <div style="color: lightgray;"><i class="bi bi-percent display-4"></i></div>
                 </div>
@@ -53,7 +53,7 @@ $net_amount = $total_amount - $total_discount;
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="me-2">
                         <div class="display-6 text-white">$ {{ number_format($net_amount, 2) }}</div>
-                        <div class="card-text fs-6 mt-2">Daily Net Amount</div>
+                        <div class="card-text fs-6 mt-2">本日の純売上</div>
                     </div>
                     <div style="color: lightblue"><i class="bi bi-coin display-4"></i></div>
                 </div>
@@ -66,7 +66,7 @@ $net_amount = $total_amount - $total_discount;
         <div class="card shadow mb-3">
             <div class="card-header bg-dark text-white py-2">
                 <i class="fas fa-chart-area me-1"></i>
-                Daily Sale Report By Categories
+                カテゴリ別 本日売上
             </div>
             <div class="card-body py-1">
                 <div id="pie_chart"></div>
@@ -78,8 +78,8 @@ $net_amount = $total_amount - $total_discount;
             <thead>
                 <tr class="table-dark">
                     <th style="width: 50px" class="text-center">#</th>
-                    <th>Product Name</th>
-                    <th class="text-center">QTY</th>
+                    <th>商品名</th>
+                    <th class="text-center">数量</th>
                 </tr>
             </thead>
             <tbody>
@@ -107,7 +107,7 @@ $net_amount = $total_amount - $total_discount;
     <div class="card shadow mb-3">
         <div class="card-header bg-dark text-white py-2">
             <i class="fas fa-chart-bar me-1"></i>
-            15 Days Total Sale Amount
+            過去15日間の売上合計
         </div>
         <div class="card-body">
             <div id="bar_chart"></div>
@@ -162,7 +162,7 @@ $net_amount = $total_amount - $total_discount;
                                 return value;
                             }
                         }
-                        var formatter = new Intl.NumberFormat("en-US", {
+                        var formatter = new Intl.NumberFormat("ja-JP", {
                             style: "decimal",
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
@@ -183,7 +183,7 @@ $net_amount = $total_amount - $total_discount;
 
     var options = {
         series: [{
-            name: 'Net Amount',
+            name: '純売上',
             data: <?php echo json_encode(array_column($result, 'total')); ?>
         }],
         chart: {

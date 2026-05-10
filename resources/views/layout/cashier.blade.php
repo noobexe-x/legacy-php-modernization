@@ -22,8 +22,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header py-2 bg-danger text-light">
-                    <h5 class="modal-title">ERROR</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">エラー</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
                 </div>
                 <div class="modal-body">
                     <p class="fs-5"></p>
@@ -39,14 +39,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header py-2 bg-success text-light">
-                    <h5 class="modal-title">SUCCESS</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">成功</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
                 </div>
                 <div class="modal-body">
                     <p class="fs-5"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
@@ -56,19 +56,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header py-2 bg-danger text-light">
-                    <h5 class="modal-title">Confirm Delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">削除の確認</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="fs-5">Are you sure want to delete?</p>
+                    <p class="fs-5">削除してもよろしいですか？</p>
                 </div>
                 <div class="modal-footer">
                     <form id="deleteForm" method="post" style="padding-bottom: 0px;margin-bottom: 0px;">
                         @method('DELETE')
                         @csrf
                         <input type="hidden" name="delete_id" id="delete_id" />
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">削除</button>
                     </form>
                 </div>
             </div>
@@ -95,7 +95,7 @@
             <ul class="d-flex align-items-center">
                 <li class="d-none d-md-inline-block form-inline ms-auto nav-item dropdown me-5">
                     <i class="bi bi-alarm-fill text-secondary pe-2"></i>
-                    <span class="text-secondary">{{ date('d-M-Y H:i:s') }}</span>
+                    <span class="text-secondary">{{ date('Y/m/d H:i:s') }}</span>
                 </li>
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
@@ -109,7 +109,7 @@
                             <button class="dropdown-item d-flex align-items-center"
                                 onclick="ajaxPopup(`{{ url('user/change-password') }}`,false)">
                                 <i class="bi bi-shield-lock"></i>
-                                <span>Change Password</span>
+                                <span>パスワード変更</span>
                             </button>
                         </li>
                         <li>
@@ -120,7 +120,7 @@
                                 @csrf
                                 <button type="submit" class="dropdown-item d-flex align-items-center">
                                     <i class="bi bi-box-arrow-right"></i>
-                                    <span>Sign Out</span>
+                                    <span>ログアウト</span>
                                 </button>
                             </form>
                         </li>
@@ -138,7 +138,7 @@
                     <ul class="nav nav-tabs nav-fill">
                         <li class="nav-item">
                             <span class="nav-link menu-item active" style="cursor: pointer" data-category="0"
-                                onclick="getProduct(event)">ALL</span>
+                                onclick="getProduct(event)">すべて</span>
                         </li>
                         @foreach ($product_categories as $category)
                         <li class="nav-item">
@@ -150,10 +150,10 @@
                         <li class="nav-item">
                             <span class="nav-link menu-item" style="padding: 5px; background: whitesmoke !important">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search..."
+                                    <input type="text" class="form-control" placeholder="検索…"
                                         onchange="getProduct()" id="search_product" style="background: lightyellow">
                                     <button class="btn btn-success" type="button"
-                                        onclick="getProduct()">Search</button>
+                                        onclick="getProduct()">検索</button>
                                 </div>
                             </span>
                         </li>

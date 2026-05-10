@@ -1,0 +1,23 @@
+# コピーして terraform.tfvars として使う: cp terraform.tfvars.example terraform.tfvars
+#
+# テストのみ（独自ドメインなし）: 下記のとおり create_route53_record = false のまま。
+# ALB には terraform apply 後に `terraform output alb_dns_name` の DNS でアクセス。
+
+aws_region   = "ap-northeast-1"
+project_name = "laravel-pos"
+environment  = "dev"
+
+create_route53_record = false
+# domain_name は create_route53_record = true にするときだけ必須（例: "example.com"）
+# domain_name = "example.com"
+# route53_record_name = "app"
+
+# 任意
+# vpc_cidr                  = "10.40.0.0/16"
+# ec2_instance_type         = "t3.small"
+# rds_instance_class        = "db.t3.micro"
+# rds_allocated_storage     = 20
+# backup_plan_enabled       = true
+# backup_schedule_cron      = "cron(0 18 * * ? *)"
+# backup_delete_after_days  = 14
+# enable_deletion_protection = false

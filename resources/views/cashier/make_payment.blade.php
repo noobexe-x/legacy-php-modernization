@@ -1,16 +1,16 @@
  <div class="modal-header py-2">
-     <h5 class="modal-title" style="font-weight: bold">Make Payment</h5>
+     <h5 class="modal-title" style="font-weight: bold">お会計</h5>
  </div>
  <div class="modal-body p-2" style="background: white">
      <table style="width: 100%" cellspacing="0" cellpadding="2px" class="table table-striped mb-0">
          <thead>
              <tr class="table-dark">
                  <th width="20px">No</th>
-                 <th style="text-align: left">Description</th>
-                 <th style="width: 8%; text-align: center">Qty</th>
-                 <th style="width: 16%; text-align: right">U.P($)</th>
-                 <th style="width: 15%; text-align: right">Disc(%)</th>
-                 <th style="width: 18%; text-align: right">Total($)</th>
+                 <th style="text-align: left">品目</th>
+                 <th style="width: 8%; text-align: center">数量</th>
+                 <th style="width: 16%; text-align: right">単価($)</th>
+                 <th style="width: 15%; text-align: right">割引(%)</th>
+                 <th style="width: 18%; text-align: right">小計($)</th>
              </tr>
          </thead>
          <tbody>
@@ -31,7 +31,7 @@
              @if($data->discount > 0)
              <tr>
                  <td style="text-align: right">
-                     Discount ({{ $data->discount }}%) :
+                     割引 ({{ $data->discount }}%)：
                  </td>
                  <td style="text-align: right;">
                      {{ number_format(($data->total * $data->discount) / 100,2) }}
@@ -39,7 +39,7 @@
              </tr>
              @endif
              <tr>
-                 <th style="text-align: right">Total ($) :</th>
+                 <th style="text-align: right">合計 ($)：</th>
                  <th style="text-align: right; width: 100px;">{{ number_format($data->total * (1 - $data->discount/100),2) }}</th>
              </tr>
          </tbody>
@@ -51,7 +51,7 @@
              <form method="POST" id="paymentForm" action="{{ url('cashier/make-payment') }}">
                  @csrf
                  <input type="hidden" name="table_id" value="{{$data->id}}" />
-                 <label class="form-label required" for="autofocus">Receive Amount</label>
+                 <label class="form-label required" for="autofocus">お預かり金額</label>
                  <span id="receive_amount_error" class="col-md-12 text-danger"></span>
                  <div class="row">
                      <div class="col-md-8">
@@ -72,9 +72,9 @@
          <div class="col-md-4">
              <div class="text-end align-text-bottom pt-lg-4">
                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                     Cancel</button>&nbsp;
+                     キャンセル</button>&nbsp;
                  <button type="submit" class="btn btn-primary" form="paymentForm">
-                     Confirm
+                     確定
                  </button>
              </div>
          </div>

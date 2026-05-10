@@ -1,6 +1,6 @@
     {{-- Laravel jQuery POS Sales Reports @ https://laravelcenter.com --}}
     <div class="pagetitle">
-        <h1>Sale Summary</h1>
+        <h1>売上サマリー</h1>
     </div>
     <section class="section">
         <div class="col">
@@ -11,12 +11,12 @@
                             <div class="col-md-10">
                                 <div class="row justify-content-start">
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="sale_summary_fd">From Date</label>
+                                        <label class="form-label" for="sale_summary_fd">開始日</label>
                                         <input type="text" id="sale_summary_fd" name="sale_summary_fd"
                                             value="{{ session('sale_summary_fd') }}" class="form-control" />
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="sale_summary_td">To Date</label>
+                                        <label class="form-label" for="sale_summary_td">終了日</label>
                                         <input type="text" id="sale_summary_td" name="sale_summary_td"
                                             value="{{ session('sale_summary_td') }}" class="form-control" />
                                     </div>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-md-2 align-self-end">
                                 <button type="submit" class="btn btn-secondary pt-1" style="float: right">
-                                    <i class="bi bi-search"></i> Search
+                                    <i class="bi bi-search"></i> 検索
                                 </button>
                             </div>
                         </div>
@@ -44,13 +44,13 @@
                         <thead>
                             <tr class="table-dark">
                                 <th class="text-center">
-                                    Total Amount
+                                    売上合計
                                 </th>
                                 <th class="text-center">
-                                    Total Discount
+                                    値引合計
                                 </th>
                                 <th class="text-center">
-                                    Net Amount
+                                    純売上
                                 </th>
                             </tr>
                         </thead>
@@ -71,10 +71,10 @@
                     <table class="table shadow">
                         <thead>
                             <tr class="table-dark">
-                                <th>Product Category</th>
-                                <th class="text-end" width="300px">Total Amount</th>
-                                <th class="text-end" width="300px">Total Discount</th>
-                                <th class="text-end" width="300px">Net Amount</th>
+                                <th>商品カテゴリ</th>
+                                <th class="text-end" width="300px">売上合計</th>
+                                <th class="text-end" width="300px">値引合計</th>
+                                <th class="text-end" width="300px">純売上</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,7 +91,7 @@
                             @else
                                 <tr>
                                     <td colspan="10" class="shadow-none">
-                                        No record found
+                                        データがありません
                                     </td>
                                 </tr>
                             @endif
@@ -107,7 +107,7 @@
             const $end = $("#sale_summary_td");
 
             const startPicker = flatpickr($start, {
-                altFormat: "d-M-Y",
+                altFormat: "Y/m/d",
                 altInput: true,
                 onChange: function(selectedDates, dateStr, instance) {
                     if (dateStr) {
@@ -117,7 +117,7 @@
             });
 
             const endPicker = flatpickr($end, {
-                altFormat: "d-M-Y",
+                altFormat: "Y/m/d",
                 altInput: true,
                 onChange: function(selectedDates, dateStr, instance) {
                     if (dateStr) {

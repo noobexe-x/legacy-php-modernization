@@ -25,21 +25,21 @@
                         <div class="card-body p-5">
                             <img src="./images/favicon.png"
                                 style="position: absolute; top: 10px; left: 10px; height: 80px;" />
-                            <h1 class="mb-4 text-center fw-bold">Sign In</h1>
+                            <h1 class="mb-4 text-center fw-bold">ログイン</h1>
                             <form id="frmLogin" method="post" action="{{ url('./login') }}">
                                 @csrf
                                 <div class="form-outline mb-4">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username"
+                                    <input type="text" class="form-control form-control-lg" placeholder="ユーザー名"
                                         id="username" name="username" autofocus />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="password" class="form-control form-control-lg" placeholder="Password"
+                                    <input type="password" class="form-control form-control-lg" placeholder="パスワード"
                                         id="password" name="password" />
                                 </div>
                                 <div class="d-grid mb-2">
                                     <button class="btn btn-primary btn-lg" type="submit">
-                                        Login
+                                        ログイン
                                     </button>
                                 </div>
                             </form>
@@ -91,7 +91,7 @@
                     $(".loading").hide();
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    alert("Error: " + errorThrown);
+                    alert("エラー: " + errorThrown);
                 },
             });
             return false;

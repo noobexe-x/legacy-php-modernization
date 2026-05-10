@@ -1,6 +1,6 @@
  <div class="modal-header py-2 bg-secondary text-light">
      <h5 class="modal-title" style="font-weight: bold">
-         {{ isset($data) ? 'Edit' : 'New' }} Table
+         {{ isset($data) ? 'テーブル編集' : 'テーブル新規' }}
      </h5>
  </div>
  <div class="modal-body">
@@ -10,15 +10,15 @@
          <input type="hidden" value="{{ isset($data) ? $data->id : 0 }}" name="id" />
          <div class="row">
              <div class="required mb-3">
-                 <label for="autofocus" class="form-label">Name</label>
+                 <label for="autofocus" class="form-label">名前</label>
                  <input id="autofocus" name="name" type="text" class="form-control"
                      value="{{ isset($data) ? $data->name : '' }}" />
              </div>
              <div class="required mb-3">
-                 <label for="status" class="form-label">Status</label>
+                 <label for="status" class="form-label">ステータス</label>
                  <select id="status" name="status" class="form-select">
-                     <option value="2" @selected(isset($data) && $data->status == 2)>Free</option>
-                     <option value="1" @selected(isset($data) && $data->status == 1)>Busy</option>
+                     <option value="2" @selected(isset($data) && $data->status == 2)>空席</option>
+                     <option value="1" @selected(isset($data) && $data->status == 1)>使用中</option>
                  </select>
              </div>
          </div>
@@ -26,9 +26,9 @@
  </div>
  <div class="modal-footer">
      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-         <i class="bi bi-x-lg"></i> Cancel
+         <i class="bi bi-x-lg"></i> キャンセル
      </button>
      <button type="submit" class="btn btn-primary" form="submitForm">
-         <i class="bi bi-floppy" style="padding-right: 3px;"></i>Save
+         <i class="bi bi-floppy" style="padding-right: 3px;"></i>保存
      </button>
  </div>

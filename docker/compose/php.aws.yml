@@ -1,0 +1,14 @@
+# RDS 等の外部 MySQL 用（コンテナ mysql サービスに依存しない）
+services:
+  php:
+    build:
+      context: ../..
+      dockerfile: docker/php/Dockerfile
+    container_name: laravel-pos-php
+    restart: unless-stopped
+    volumes:
+      - ../../:/var/www/html
+    env_file:
+      - ../../.env
+    networks:
+      - laravel-pos

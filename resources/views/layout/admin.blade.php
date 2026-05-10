@@ -22,14 +22,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header py-2 bg-danger text-light">
-                    <h5 class="modal-title">ERROR</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">エラー</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
                 </div>
                 <div class="modal-body">
                     <p class="fs-5"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
@@ -39,14 +39,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header py-2 bg-success text-light">
-                    <h5 class="modal-title">SUCCESS</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">成功</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
                 </div>
                 <div class="modal-body">
                     <p class="fs-5"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
@@ -56,19 +56,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header py-2 bg-danger text-light">
-                    <h5 class="modal-title">Confirm Delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">削除の確認</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="fs-5">Are you sure want to delete?</p>
+                    <p class="fs-5">削除してもよろしいですか？</p>
                 </div>
                 <div class="modal-footer">
                     <form id="deleteForm" method="post" style="padding-bottom: 0px;margin-bottom: 0px;">
                         @method('DELETE')
                         @csrf
                         <input type="hidden" name="delete_id" id="delete_id" />
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">削除</button>
                     </form>
                 </div>
             </div>
@@ -96,7 +96,7 @@
             <ul class="d-flex align-items-center">
                 <li class="d-none d-md-inline-block form-inline ms-auto nav-item dropdown me-5">
                     <i class="bi bi-alarm-fill text-secondary pe-2"></i>
-                    <span class="text-secondary">{{ date('d-M-Y H:i:s') }}</span>
+                    <span class="text-secondary">{{ date('Y/m/d H:i:s') }}</span>
                 </li>
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
@@ -110,7 +110,7 @@
                             <button class="dropdown-item d-flex align-items-center"
                                 onclick="ajaxPopup(`{{ url('user/change-password') }}`)">
                                 <i class="bi bi-shield-lock"></i>
-                                <span>Change Password</span>
+                                <span>パスワード変更</span>
                             </button>
                         </li>
                         <li>
@@ -121,7 +121,7 @@
                                 @csrf
                                 <button type="submit" class="dropdown-item d-flex align-items-center">
                                     <i class="bi bi-box-arrow-right"></i>
-                                    <span>Sign Out</span>
+                                    <span>ログアウト</span>
                                 </button>
                             </form>
                         </li>
@@ -138,60 +138,60 @@
             <li class="nav-item">
                 <a href="#dashboard" class="nav-link collapsed">
                     <i class="bi bi-speedometer2"></i>
-                    <span>Dashboard</span>
+                    <span>ダッシュボード</span>
                 </a>
             </li>
-            <li class="nav-heading">Main Data</li>
+            <li class="nav-heading">マスタ</li>
             <li class="nav-item">
                 <a href="#table" class="nav-link collapsed">
                     <i class="bi bi-grid-3x3-gap"></i>
-                    <span>Table</span>
+                    <span>テーブル</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#product" class="nav-link collapsed">
                     <i class="bi bi-list-ul"></i>
-                    <span>Product</span>
+                    <span>商品</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#product-category" class="nav-link collapsed">
                     <i class="bi bi-grid"></i>
-                    <span>Product Category</span>
+                    <span>商品カテゴリ</span>
                 </a>
             </li>
-            <li class="nav-heading">Operation</li>
+            <li class="nav-heading">運用</li>
             <li class="nav-item">
                 <a href="#balance-adjustment" class="nav-link collapsed">
                     <i class="bi bi-coin"></i>
-                    <span>Balance Adjustment</span>
+                    <span>残高調整</span>
                 </a>
             </li>
-            <li class="nav-heading">Report</li>
+            <li class="nav-heading">レポート</li>
             <li class="nav-item">
                 <a href="#report/sale-summary" class="nav-link collapsed">
                     <i class="bi bi-graph-up-arrow"></i>
-                    <span>Sale Summary</span>
+                    <span>売上サマリー</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#report/product-summary" class="nav-link collapsed">
                     <i class="bi bi-clipboard-data"></i>
-                    <span>Product Summary</span>
+                    <span>商品別集計</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#report/sale-history" class="nav-link collapsed">
                     <i class="bi bi-clock-history"></i>
-                    <span>Sale History</span>
+                    <span>売上履歴</span>
                 </a>
             </li>
             @if (request()->user()->role == 'superadmin')
-            <li class="nav-heading">System Setting</li>
+            <li class="nav-heading">システム設定</li>
             <li class="nav-item">
                 <a href="#user" class="nav-link collapsed">
                     <i class="bi bi-people"></i>
-                    <span>System User</span>
+                    <span>ユーザー管理</span>
                 </a>
             </li>
             @endif

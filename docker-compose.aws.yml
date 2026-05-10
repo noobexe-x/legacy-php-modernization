@@ -1,0 +1,6 @@
+# AWS EC2 + RDS：ローカル MySQL コンテナなし
+#   docker compose -f docker-compose.aws.yml up -d --build
+include:
+  - path: docker/compose/base.yml
+  - path: docker/compose/php.aws.yml
+  - path: docker/compose/nginx.aws.yml

@@ -1,9 +1,9 @@
     <button type="button" class="btn btn-success" style="float: right" onclick="exportToExcel()">
-        <i class="bi bi-file-earmark-excel"></i> Export to Excel
+        <i class="bi bi-file-earmark-excel"></i> Excelにエクスポート
     </button>
 
     <div class="pagetitle">
-        <h1>Product Summary</h1>
+        <h1>商品別集計</h1>
     </div>
     <section class="section">
         <div class="col">
@@ -14,11 +14,11 @@
                             <div class="col-md-10">
                                 <div class="row justify-content-start">
                                     <div class="col-lg-3 col-sm-6">
-                                        <label for="product_summary_category_id" class="form-label">Category</label>
+                                        <label for="product_summary_category_id" class="form-label">カテゴリ</label>
                                         <select id="product_summary_category_id" name="product_summary_category_id" class="form-select">
                                             <option value="0"
                                                 {{ session('product_summary_category_id') == 0 ? 'selected' : '' }}>
-                                                ALL
+                                                すべて
                                             </option>
                                             @foreach ($product_categories as $category)
                                             <option value="{{ $category->id }}"
@@ -29,18 +29,18 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="product_summary_fd">From Date</label>
+                                        <label class="form-label" for="product_summary_fd">開始日</label>
                                         <input type="text" id="product_summary_fd" name="product_summary_fd" value="{{session('product_summary_fd')}}" class="form-control" />
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="product_summary_td">To Date</label>
+                                        <label class="form-label" for="product_summary_td">終了日</label>
                                         <input type="text" id="product_summary_td" name="product_summary_td" value="{{session('product_summary_td')}}" class="form-control" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-2 align-self-end">
                                 <button type="submit" class="btn btn-secondary pt-1" style="float: right">
-                                    <i class="bi bi-search"></i> Search
+                                    <i class="bi bi-search"></i> 検索
                                 </button>
                             </div>
                         </div>
@@ -50,9 +50,9 @@
                         <thead>
                             <tr class="table-dark">
                                 <th style="width: 50px">#</th>
-                                <th>Product Name</th>
-                                <th>Product Category</th>
-                                <th class="text-end">Quantity</th>
+                                <th>商品名</th>
+                                <th>商品カテゴリ</th>
+                                <th class="text-end">数量</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,7 +68,7 @@
                             @else
                             <tr>
                                 <td colspan="10" class="shadow-none">
-                                    No record found
+                                    データがありません
                                 </td>
                             </tr>
                             @endif
@@ -91,7 +91,7 @@
             const $end = $("#product_summary_td");
 
             const startPicker = flatpickr($start, {
-                altFormat: "d-M-Y",
+                altFormat: "Y/m/d",
                 altInput: true,
                 onChange: function(selectedDates, dateStr, instance) {
                     if (dateStr) {
@@ -101,7 +101,7 @@
             });
 
             const endPicker = flatpickr($end, {
-                altFormat: "d-M-Y",
+                altFormat: "Y/m/d",
                 altInput: true,
                 onChange: function(selectedDates, dateStr, instance) {
                     if (dateStr) {
@@ -116,7 +116,7 @@
                     method: "GET",
                     dataType: "json",
                     success: function(data) {
-                        const headers = ['Product Name', 'Product Category', 'Quantity'];
+                        const headers = ['商品名', '商品カテゴリ', '数量'];
                         const response = [headers, ...data.map(row => [
                             row.description,
                             row.category_name,
@@ -135,7 +135,7 @@
                             const url = URL.createObjectURL(blob);
                             const a = document.createElement("a");
                             a.href = url;
-                            a.download = "Product Summary Report.xlsx";
+                            a.download = "商品別集計.xlsx";
                             document.body.appendChild(a);
                             a.click();
                             document.body.removeChild(a);

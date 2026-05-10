@@ -1,9 +1,9 @@
     <button type="button" class="btn btn-success" style="float: right" onclick="exportToExcel()">
-        <i class="bi bi-file-earmark-excel"></i> Export to Excel
+        <i class="bi bi-file-earmark-excel"></i> Excelにエクスポート
     </button>
 
     <div class="pagetitle">
-        <h1>Sale History</h1>
+        <h1>売上履歴</h1>
     </div>
     <section class="section">
         <div class="col">
@@ -14,18 +14,18 @@
                             <div class="col-md-10">
                                 <div class="row justify-content-start">
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="sale_history_invoice_no">Invoice#</label>
+                                        <label class="form-label" for="sale_history_invoice_no">伝票番号</label>
                                         <input type="text" id="sale_history_invoice_no"
                                             name="sale_history_invoice_no" class="form-control"
-                                            value="{{ session('sale_history_invoice_no') }}" placeholder="Search..." />
+                                            value="{{ session('sale_history_invoice_no') }}" placeholder="検索…" />
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="sale_history_fd">From Date</label>
+                                        <label class="form-label" for="sale_history_fd">開始日</label>
                                         <input type="text" id="sale_history_fd" name="sale_history_fd"
                                             value="{{ session('sale_history_fd') }}" class="form-control" />
                                     </div>
                                     <div class="col-lg-3 col-sm-6">
-                                        <label class="form-label" for="sale_history_td">To Date</label>
+                                        <label class="form-label" for="sale_history_td">終了日</label>
                                         <input type="text" id="sale_history_td" name="sale_history_td"
                                             value="{{ session('sale_history_td') }}" class="form-control" />
                                     </div>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-2 align-self-end">
                                 <button type="submit" class="btn btn-secondary pt-1" style="float: right">
-                                    <i class="bi bi-search"></i> Search
+                                    <i class="bi bi-search"></i> 検索
                                 </button>
                             </div>
                         </div>
@@ -43,13 +43,13 @@
                         <thead>
                             <tr class="table-dark">
                                 <th class="text-center">
-                                    Total Amount
+                                    売上合計
                                 </th>
                                 <th class="text-center">
-                                    Total Discount
+                                    値引合計
                                 </th>
                                 <th class="text-center">
-                                    Net Amount
+                                    純売上
                                 </th>
                             </tr>
                         </thead>
@@ -74,42 +74,42 @@
                                 <th style="width: 50px">#</th>
                                 <th style="cursor: pointer"
                                     onclick="ajaxLoad(`{{ url('report/sale-history?sale_history_field=orders.invoice_no&sale_history_order=' . (session('sale_history_order') == 'asc' ? 'desc' : 'asc')) }}`)">
-                                    Invoice No
+                                    伝票番号
                                     <i
                                         class="text-secondary {{ session('sale_history_field') == 'orders.invoice_no' ? (session('sale_history_order') == 'desc' ? 'bi bi-sort-alpha-down-alt' : 'bi bi-sort-alpha-down') : 'bi bi-arrow-down-up' }}"></i>
                                 </th>
                                 <th style="cursor: pointer" class="text-center"
                                     onclick="ajaxLoad(`{{ url('report/sale-history?sale_history_field=tables.name&sale_history_order=' . (session('sale_history_order') == 'asc' ? 'desc' : 'asc')) }}`)">
-                                    Table No
+                                    テーブル
                                     <i
                                         class="text-secondary {{ session('sale_history_field') == 'tables.name' ? (session('sale_history_order') == 'desc' ? 'bi bi-sort-alpha-down-alt' : 'bi bi-sort-alpha-down') : 'bi bi-arrow-down-up' }}"></i>
                                 </th>
                                 <th style="cursor: pointer" class="text-end"
                                     onclick="ajaxLoad(`{{ url('report/sale-history?sale_history_field=orders.grand_total&sale_history_order=' . (session('sale_history_order') == 'asc' ? 'desc' : 'asc')) }}`)">
-                                    Total Amount
+                                    合計金額
                                     <i
                                         class="text-secondary {{ session('sale_history_field') == 'orders.grand_total' ? (session('sale_history_order') == 'desc' ? 'bi bi-sort-alpha-down-alt' : 'bi bi-sort-alpha-down') : 'bi bi-arrow-down-up' }}"></i>
                                 </th>
                                 <th style="cursor: pointer" class="text-end"
                                     onclick="ajaxLoad(`{{ url('report/sale-history?sale_history_field=orders.total_discount&sale_history_order=' . (session('sale_history_order') == 'asc' ? 'desc' : 'asc')) }}`)">
-                                    Discount Amount
+                                    値引額
                                     <i
                                         class="text-secondary {{ session('sale_history_field') == 'orders.total_discount' ? (session('sale_history_order') == 'desc' ? 'bi bi-sort-alpha-down-alt' : 'bi bi-sort-alpha-down') : 'bi bi-arrow-down-up' }}"></i>
                                 </th>
                                 <th style="cursor: pointer" class="text-end"
                                     onclick="ajaxLoad(`{{ url('report/sale-history?sale_history_field=orders.net_amount&sale_history_order=' . (session('sale_history_order') == 'asc' ? 'desc' : 'asc')) }}`)">
-                                    Net Amount
+                                    純売上
                                     <i
                                         class="text-secondary {{ session('sale_history_field') == 'orders.net_amount' ? (session('sale_history_order') == 'desc' ? 'bi bi-sort-alpha-down-alt' : 'bi bi-sort-alpha-down') : 'bi bi-arrow-down-up' }}"></i>
                                 </th>
                                 <th style="cursor: pointer"
                                     onclick="ajaxLoad(`{{ url('report/sale-history?sale_history_field=orders.created_at&sale_history_order=' . (session('sale_history_order') == 'asc' ? 'desc' : 'asc')) }}`)">
-                                    Date
+                                    日時
                                     <i
                                         class="text-secondary {{ session('sale_history_field') == 'orders.created_at' ? (session('sale_history_order') == 'desc' ? 'bi bi-sort-alpha-down-alt' : 'bi bi-sort-alpha-down') : 'bi bi-arrow-down-up' }}"></i>
                                 </th>
                                 <th>
-                                    Cashier
+                                    レジ担当
                                 </th>
                             </tr>
                         </thead>
@@ -127,14 +127,14 @@
                                 <td class="text-end">${{ $value->grand_total }}</td>
                                 <td class="text-end">${{ $value->total_discount }}</td>
                                 <td class="text-end">${{ number_format($value->net_amount, 2) }}</td>
-                                <td>{{ date('d-M-Y H:i:s', strtotime($value->created_at)) }}</td>
+                                <td>{{ date('Y/m/d H:i:s', strtotime($value->created_at)) }}</td>
                                 <td class="text-capitalize">{{ $value->cashier }}</td>
                             </tr>
                             @endforeach
                             @else
                             <tr>
                                 <td colspan="10" class="shadow-none">
-                                    No record found
+                                    データがありません
                                 </td>
                             </tr>
                             @endif
@@ -157,7 +157,7 @@
             const $end = $("#sale_history_td");
 
             const startPicker = flatpickr($start, {
-                altFormat: "d-M-Y",
+                altFormat: "Y/m/d",
                 altInput: true,
                 onChange: function(selectedDates, dateStr, instance) {
                     if (dateStr) {
@@ -167,7 +167,7 @@
             });
 
             const endPicker = flatpickr($end, {
-                altFormat: "d-M-Y",
+                altFormat: "Y/m/d",
                 altInput: true,
                 onChange: function(selectedDates, dateStr, instance) {
                     if (dateStr) {
@@ -182,7 +182,7 @@
                     method: "GET",
                     dataType: "json",
                     success: function(data) {
-                        const headers = ['Invoice No', 'Table Name', 'Grand Total', 'Total Discount', 'Net Amount', 'Order Date', 'Cashier'];
+                        const headers = ['伝票番号', 'テーブル', '合計', '値引合計', '純売上', '注文日時', 'レジ担当'];
                         const response = [headers, ...data.map(row => [
                             row.invoice_no,
                             row.table_name,
@@ -205,7 +205,7 @@
                             const url = URL.createObjectURL(blob);
                             const a = document.createElement("a");
                             a.href = url;
-                            a.download = "Sale History Report.xlsx";
+                            a.download = "売上履歴.xlsx";
                             document.body.appendChild(a);
                             a.click();
                             document.body.removeChild(a);

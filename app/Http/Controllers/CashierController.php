@@ -200,9 +200,9 @@ class CashierController extends Controller
             'receive_amount' => 'required|numeric|min:' . $table->net_amount
         ];
         $validator = Validator::make($request->all(), $rules, [
-            'receive_amount.required' => 'is required',
-            'receive_amount.numeric' => 'must be number',
-            'receive_amount.min' => 'must be at least ' . $table->net_amount,
+            'receive_amount.required' => 'お預かり金額を入力してください。',
+            'receive_amount.numeric' => '数値で入力してください。',
+            'receive_amount.min' => '合計金額（' . $table->net_amount . '）以上を入力してください。',
         ]);
         if ($validator->fails())
             return response()->json([

@@ -163,7 +163,7 @@ $(document).on("submit", "form#submitForm", function (event) {
                 }
             } else {
                 formModal.hide();
-                $('.modal-body p', successModalId).text("Data has been saved successfully");
+                $('.modal-body p', successModalId).text("保存しました");
                 successModal.show();
                 if (data.redirect_url) {
                     ajaxLoad(data.redirect_url);
@@ -319,25 +319,25 @@ window.validateFile = (event, maxFileSize = 1, validFileExtension = [".jpg", ".j
 
             if (fileName != files[0].name.substr(0, files[0].name.length - sCurExtension.length)) {
                 $("input[name=image]").addClass("is-invalid");
-                $("<span class='invalid-feedback'>Invalid filename. Filename only allow alphanumeric chatacters.</span>").insertAfter($("input[name=image]"));
+                $("<span class='invalid-feedback'>ファイル名が無効です。英数字・ハイフン・アンダースコアのみ使用できます。</span>").insertAfter($("input[name=image]"));
                 event.value = '';
             } else if (blnValid) {
                 file = files[0];
             } else {
                 $("input[name=image]").addClass("is-invalid");
                 $("<span class='invalid-feedback'>" + files[0].name +
-                    " is invalid, allowed extensions are:" +
+                    " は無効です。利用可能な拡張子: " +
                     validFileExtension.join(", ") + "</span>").insertAfter($("input[name=image]"));
                 event.value = '';
             }
         } else {
             if (maxFileSize < 1) {
                 $("input[name=image]").addClass("is-invalid");
-                $("<span class='invalid-feedback'>Maximum file size is " + (maxFileSize * 1000).toString() + "KB.</span>").insertAfter($("input[name=image]"));
+                $("<span class='invalid-feedback'>最大ファイルサイズは " + (maxFileSize * 1000).toString() + "KB です。</span>").insertAfter($("input[name=image]"));
                 event.value = '';
             } else {
                 $("input[name=image]").addClass("is-invalid");
-                $("<span class='invalid-feedback'>Maximum file size is " + maxFileSize.toString() + "MB.</span>").insertAfter($("input[name=image]"));
+                $("<span class='invalid-feedback'>最大ファイルサイズは " + maxFileSize.toString() + "MB です。</span>").insertAfter($("input[name=image]"));
                 event.value = '';
             }
         }

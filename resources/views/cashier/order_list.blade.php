@@ -6,20 +6,20 @@
 <div class="card-header p-2 d-none d-lg-block">
     <div class="row row-cols-4 g-1">
         <div>
-            <button class="btn btn-secondary btn w-100" onclick="ajaxPopup('cashier/table/0')" title="Select Table"
-                id="table_id">{{ $data ? $data->name : 'Table' }}</button>
+            <button class="btn btn-secondary btn w-100" onclick="ajaxPopup('cashier/table/0')" title="テーブル選択"
+                id="table_id">{{ $data ? $data->name : 'テーブル' }}</button>
         </div>
         <div>
-            <button disabled title="Change Table" id="change_table"
-                onclick="ajaxPopup('cashier/table/{{ $data?->id }}')" class="btn btn-primary w-100 btn">Change</button>
+            <button disabled title="テーブル変更" id="change_table"
+                onclick="ajaxPopup('cashier/table/{{ $data?->id }}')" class="btn btn-primary w-100 btn">変更</button>
         </div>
         <div>
-            <button class="btn btn-warning w-100 btn" title="Print" onclick="ajaxPrint('cashier/print-invoice',{table_id:`{{ $data?->id }}`})" @disabled(!$data || $data->order_detail_temps->count() == 0)
-                >Print</button>
+            <button class="btn btn-warning w-100 btn" title="印刷" onclick="ajaxPrint('cashier/print-invoice',{table_id:`{{ $data?->id }}`})" @disabled(!$data || $data->order_detail_temps->count() == 0)
+                >印刷</button>
         </div>
         <div>
-            <button class="btn btn-success w-100 btn" title="Payment" @disabled(!$data || $data->order_detail_temps->count() == 0)
-                onclick="ajaxPopup('cashier/make-payment')">Payment</button>
+            <button class="btn btn-success w-100 btn" title="お会計" @disabled(!$data || $data->order_detail_temps->count() == 0)
+                onclick="ajaxPopup('cashier/make-payment')">会計</button>
         </div>
     </div>
 </div>
@@ -31,14 +31,14 @@
                     <input type="checkbox" id="selectAll" onchange="selectAll(event)"
                         style="width: 18px; height: 18px; margin-top: 3px" />
                 </th>
-                <th>Desc</th>
-                <th style="width: 75px">QTY</th>
+                <th>品目</th>
+                <th style="width: 75px">数量</th>
                 <th class="text-end" style="width: 80px">
-                    U.P ($)
+                    単価 ($)
                 </th>
-                <th class="text-end" style="width: 75px">DC(%)</th>
+                <th class="text-end" style="width: 75px">割引(%)</th>
                 <th class="text-end" style="width: 90px">
-                    Total ($)
+                    小計 ($)
                 </th>
                 <th style="width: 10px"></th>
             </tr>
@@ -72,7 +72,7 @@
                 <td>
                     <i class="bi bi-trash" style="color: red; cursor: pointer"
                         data-record-url="{{ url('cashier/delete-order-product') }}"
-                        data-record-id="{{ $value->id }}" title="Delete" data-bs-toggle="modal"
+                        data-record-id="{{ $value->id }}" title="削除" data-bs-toggle="modal"
                         data-bs-target="#confirmDelete"></i>
                 </td>
             </tr>
@@ -86,14 +86,14 @@
     <table class="table mb-0" style="background: whitesmoke">
         <tbody>
             <tr>
-                <td class="text-end" style="width: 50px">Discount (%) :</td>
+                <td class="text-end" style="width: 50px">割引 (%)：</td>
                 <td style="width: 100px">
                     <input type="number"
                         style="border: none; appearance: none;background: #e9ecef;;max-width: 50px;"
                         class="form-control p-0 text-center w-100" value="{{ $data->discount }}" min="0"
                         max="100" onchange="ajaxSubmit('cashier/update-discount',{discount: this.value})" />
                 </td>
-                <th class="text-end" style="width: 100px">Total ($) :</th>
+                <th class="text-end" style="width: 100px">合計 ($)：</th>
                 <th class="text-end text-danger" style="width: 50px;">
                     {{ number_format($data->net_amount,2) }}
                 </th>

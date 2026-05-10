@@ -1,0 +1,11 @@
+# フロントエンドビルド（Vite）。profile=assets のときのみ実行。ランタイムとは分離
+services:
+  node:
+    image: node:20-bookworm-slim
+    container_name: laravel-pos-node
+    working_dir: /var/www/html
+    volumes:
+      - ../../:/var/www/html
+    profiles:
+      - assets
+    command: sh -c "npm ci && npm run build"

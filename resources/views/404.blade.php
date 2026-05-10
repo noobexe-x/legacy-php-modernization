@@ -18,9 +18,9 @@
     <div class="container">
         <section class="section error-404 min-vh-100 d-flex flex-column align-items-center justify-content-center">
             <h1>404</h1>
-            <h2>The page you are looking for doesn't exist.</h2>
-            <a class="btn" href="{{ url('/') }}">Back to home</a>
-            <img src="{{ url('images/not-found.svg') }}" class="img-fluid" alt="Page Not Found">
+            <h2>お探しのページは存在しません。</h2>
+            <a class="btn" href="{{ url('/') }}">ホームへ戻る</a>
+            <img src="{{ url('images/not-found.svg') }}" class="img-fluid" alt="ページが見つかりません">
         </section>
     </div>
 </body>

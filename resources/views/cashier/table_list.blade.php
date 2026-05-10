@@ -1,5 +1,5 @@
 <div class="modal-header py-2 text-bg-secondary">
-    <h5 class="modal-title" style="font-weight: bold">Select Table</h5>
+    <h5 class="modal-title" style="font-weight: bold">テーブル選択</h5>
 </div>
 <div class="modal-body">
     <div class="row row-cols-3 row-cols-sm-4 row-cols-xl-5 g-2">
@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <div class="px-2 py-1 text-bg-secondary" style="text-align: right">Free</div>
-    <div class="px-2 py-1 text-bg-danger" style="text-align: right">Busy</div>
-    <div class="px-2 py-1 text-bg-success" style="text-align: right">Printed</div>
+    <div class="px-2 py-1 text-bg-secondary" style="text-align: right">空席</div>
+    <div class="px-2 py-1 text-bg-danger" style="text-align: right">使用中</div>
+    <div class="px-2 py-1 text-bg-success" style="text-align: right">印刷済み</div>
 </div>

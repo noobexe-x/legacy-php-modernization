@@ -1,0 +1,19 @@
+# メイン：docker/compose/ を include で結合
+#
+# ■ 他人・本番機での典型手順（Docker / Compose v2.24+ と include 対応が必要）
+#   git clone <repo> && cd <dir>
+#   docker compose up -d --build
+#   ブラウザ: http://<ホスト>:8080
+#
+# ■ 補助スクリプト（任意）
+#   ./docker-up.sh … 上記とほぼ同じ（メッセージ付き）
+# ■ include 非対応の古い Compose
+#   docker compose -f docker/compose/base.yml -f docker/compose/mysql.yml \
+#     -f docker/compose/php.yml -f docker/compose/nginx.yml -f docker/compose/node.yml up -d --build
+
+include:
+  - path: docker/compose/base.yml
+  - path: docker/compose/mysql.yml
+  - path: docker/compose/php.yml
+  - path: docker/compose/nginx.yml
+  - path: docker/compose/node.yml
